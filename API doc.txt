@@ -1,0 +1,184 @@
+(1) Register : To register a user
+URL = http://127.0.0.1:8000/api/users
+Type = "POST"
+parameters : first_name, last_name, email, password
+
+(2) Login: For login and getting token for authentication
+URL = http://127.0.0.1:8000/api/login
+Type = "POST"
+parameters : email, password
+
+(3) get_info: Get Information of the user throgh token
+URL = http://127.0.0.1:8000/api/user/get_info
+Type = "POST"
+parameters(Form-Data) : token
+
+(4) profile_club_create: To create or Update the profile of a user
+URL = http://127.0.0.1:8000/api/club/profile_club_create
+Type = "POST"
+parameters(Form-Data) : token, title, description, profile_image, tag_line, old_title
+
+(5) Club_all: To get the data of all the clubs
+URL = http://127.0.0.1:8000/api/club/clubs_all
+Type = "GET"
+parameters: No Parameters
+
+(6) One_club_data: Get data of a particular user
+URL = http://127.0.0.1:8000/api/club/profile_club/<club_name>
+Type = "GET"
+parameters: No Parameters
+
+(7) One_club_data_token: To create or Update the profile of a user
+URL = http://127.0.0.1:8000/api/club/club_profile
+Type = "POST"
+parameters(Form-Data) : token
+
+(8) Event_create: To create events
+URL = http://127.0.0.1:8000/api/club/event_create
+Type = "POST"
+parameters(Form-Data) : token, event_title, event_description, poster, date
+
+(9) Event_update: To update events
+URL = http://127.0.0.1:8000/api/club/event_update
+Type = "POST"
+parameters(Form-Data) : token, id_event, event_title, event_description, poster, date
+
+(10) Events of a particular club: Get data of all the events of a club
+URL = http://127.0.0.1:8000/api/club/events
+Type = "POST"
+parameters: token, club_name
+
+(11) events_all: Get the data of all the events
+URL = http://127.0.0.1:8000/api/club/events_all 
+Type = "GET"
+parameters: No Parameters
+
+(12) member_delete: To delete a user as a member of club
+URL = http://127.0.0.1:8000/api/club/member_delete
+Type = "POST"
+parameters(Form-Data) : token, title
+
+(13) member_add: To add a user as a member of club
+URL = http://127.0.0.1:8000/api/club/member_add
+Type = "POST"
+parameters(Form-Data) : token, title
+
+(14) event_register: To register a user for event
+URL = http://127.0.0.1:8000/api/club/event_register
+Type = "POST"
+parameters(Form-Data) : token, id_event, mobile_no, roll_no
+
+(15) get_registered_users : To get registered user for an event
+URL = http://127.0.0.1:8000/api/club/registered_users/<event-name>
+Type = "GET"
+parameters: No Parameters
+
+(16) event_data_id: To get event data from id
+URL = http://127.0.0.1:8000/api/club/event_data_id
+Type = "POST"
+parameters(Form-Data) : token, id_event
+
+(17) is_registered: To check if user is registered for event or not
+URL = http://127.0.0.1:8000/api/club/is_registered
+Type = "POST"
+parameters(Form-Data) : token, id_event
+
+(18) get_type_user: To get type of user from token
+URL = http://127.0.0.1:8000/api/user/get_type_user
+Type = "POST"
+parameters(Form-Data) : token
+
+(19) event_unregister: To unregister a user for event
+URL = http://127.0.0.1:8000/api/club/event_unregister
+Type = "POST"
+parameters(Form-Data) : token, id_event
+
+(20) announcement: Create an announcement
+URL = http://127.0.0.1:8000/api/club/announcement
+Type = "POST"
+parameters(Form-Data) : token, event_name, to_announce, title, ann_description
+
+(21) get_announcement: Get announcements according to club and logged in user
+URL = http://127.0.0.1:8000/api/club/get_announcements
+Type = "POST"
+parameters(Form-Data) : token, club_name
+
+(22) get_uncompletedevents: To get all the uncompleted events of a club
+URL = http://127.0.0.1:8000/api/club/uncompleted_events/<club-name>
+Type = "GET"
+parameters: No Parameters
+
+(23) get_announcement_club: To get announcements for club user
+URL = http://127.0.0.1:8000/api/club/get_announcement_club/<club-name>
+Type = "GET"
+parameters: No Parameters
+
+(24) rating: To rate an event
+URL = http://127.0.0.1:8000/api/user/rating
+Type = "POST"
+parameters(Form-Data) : token, event_title, rating
+
+(25) club_register: to create a club
+URL = http://127.0.0.1:8000/api/clubs
+Type = "POST"
+parameters : email, password, title, description, profile_image, tag_line
+
+(26) is_member: to check that a user is registered or not
+URL = http://127.0.0.1:8000/api/club/is_member
+Type = "POST"
+parameters(Form-Data) : token, title
+
+(27) club_delete: to delete a club user
+URl = http://127.0.0.1:8000/api/club/club_delete
+Type = "POST"
+parameters(Form-Data) : title
+
+(28) events_all_admin : get all events for admin
+URL = http://127.0.0.1:8000/api/club/events_all_admin
+Type = "GET"
+parameters: No Parameters
+
+(29) approval : to change the satate of an event
+URL = http://127.0.0.1:8000/api/club/approval
+Type = "POST"
+parameters(Form-Data) : id_event, fut_state
+
+(30) event_views : add view to an event
+URL = http://127.0.0.1:8000/api/club/event_view
+Type = "POST"
+parameters(Form-Data) : token, id_event
+
+(31) stats_of_event : get stats of event
+URL = http://127.0.0.1:8000/api/club/stats_of_event
+Type = "POST"
+parameters(Form-Data) : id_event
+
+(32) check_in_true : Checked in an event
+URL = http://127.0.0.1:8000/api/club/check_in_true
+Type = "POST"
+parameters(Form-Data) : user_email, id_event
+
+(33) check_in_false : Checked in an event
+URL = http://127.0.0.1:8000/api/club/check_in_false
+Type = "POST"
+parameters(Form-Data) : user_email, id_event
+
+(34) get_all_announcements : get all announcements for admin
+URL = http://127.0.0.1:8000/api/club/get_all_announcements
+Type = "GET"
+parameters: No Parameters
+
+(35) events_club_cal : dates for calender
+URL = http://127.0.0.1:8000/api/club/events_club_cal/<Club-Name>
+Type = "GET"
+parameters: No Parameters
+
+(36) stats_of_club : stats of club
+URL = http://127.0.0.1:8000/api/club/stats_of_club
+Type = "POST"
+parameters(Form-Data) : club_name
+
+(37) event_delete_id : delete an event
+URL : http://127.0.0.1:8000/api/club/event_delete_id
+Type = "POST"
+parameters(Form-Data) : id_event
